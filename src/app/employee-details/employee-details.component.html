@@ -1,0 +1,51 @@
+<div class="container">
+    <!-- <app-employee-details-form></app-employee-details-form> -->
+    <app-employee-details-form></app-employee-details-form>
+    <nav class="navbar">
+        <input class="form-control" type="text" name="Searchname" [(ngModel)]="Searchname"  (ngModelChange)="Search()" placeholder="Search First Name" />
+    </nav>
+
+
+
+
+
+    <table class="table table-striped mt-2">
+        <thead class="thead-light">
+            <tr>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Doj</th>
+                <th>Designation</th>
+                <th>DesignationID</th>
+                <th>IsActicve</th>
+                <th>IsMarried</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let pd of service.list">
+             
+                <td>{{pd.name}}</td>
+                <td>{{pd.lastName}}</td>
+                <td>{{pd.email}}</td>
+                <td>{{pd.age}}</td>
+                <td>{{pd.doj|date}}</td>
+                <td>{{pd.designation}}</td>
+                <td>{{pd.designationID}}</td>
+                <td>{{pd.isActive}}</td>
+                <td>{{pd.isMarried}}</td>
+                <td>
+                  <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.id)" ></i>
+                </td>
+                <td>
+                    <a data-bs-toggle="collapse" href="#collapseExample" aria-controls="collapseExample"> <i class="fa fa-edit mr-2" aria-hidden="true" (click)="populateForm(pd)"></i></a>  
+                    
+                </td>
+               
+    
+            </tr>
+        </tbody>
+    </table>
+    

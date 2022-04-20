@@ -1,0 +1,70 @@
+<form novalidate #form="ngForm" (submit)="onSubmit(form)">
+<input type="hidden" name="id" #id="ngModel" [ngModel]="service.Employeedata.id"  />
+<div class="form-group">
+    <label for="name">Name</label>
+    <div *ngIf="name.invalid && (name.touched || name.dirty)" class="float-right">
+        <p class="text-danger">Name Required</p>
+    </div>
+    <input class="form-control form-control-lg" type="text" name="name" placeholder="Enter Your First Name" #name="ngModel" [(ngModel)]="service.Employeedata.name"  required=""/>
+</div>
+<div class="form-group">
+    <label for="lastName">Last Name</label>
+    <div *ngIf="lastName.invalid && (lastName.touched || lastName.dirty)" class="float-right">
+        <p class="text-danger">Last Name Required</p>
+    </div>
+    <input class="form-control form-control-lg" type="text" name="lastName" placeholder="Enter Your Last Name" #lastName="ngModel" [(ngModel)]="service.Employeedata.lastName" required="" />
+</div>
+<div class="form-group">
+    <label for="email">Email</label>
+    <div *ngIf="email.invalid && (email.touched || email.dirty)" class="float-right">
+        <p class="text-danger">Email Required</p>
+    </div>
+    <input class="form-control form-control-lg" type="email" name="email" placeholder="Enter Your Email" #email="ngModel" [(ngModel)]="service.Employeedata.email" required="" />
+</div>
+<div class="form-group">
+    <label for="age">Age</label>
+    <div *ngIf="age.invalid && (age.touched || age.dirty)" class="float-right">
+        <p class="text-danger">Age Required</p>
+    </div>
+    <input class="form-control form-control-lg" type="number" name="age" placeholder="Enter Your Age" #age="ngModel" [(ngModel)]="service.Employeedata.age" required="" />
+</div>
+<div class="form-group">
+    <label for="doj">Date</label>
+    <div *ngIf="doj.invalid && (doj.touched || doj.dirty)" class="float-right">
+        <p class="text-danger">Date Required</p>
+    </div>
+    <input class="form-control form-control-lg" type="date" name="doj" placeholder="Enter Your DOj" #doj="ngModel" [(ngModel)]="service.Employeedata.doj" required="" />
+</div>
+<div class="form-group">
+    <label for="designation">Designation</label>
+    <div *ngIf="designation.invalid && (designation.touched || designation.dirty)" class="float-right">
+        <p class="text-danger" >Designation Required</p>
+    </div>
+    <select class="form-select" name="designation" #designation="ngModel" [(ngModel)]="service.Employeedata.designation" required>
+        <option value="" selected>Select Designation</option>
+        <option value="Engineer">Engineer</option>
+        <option value="CA">CA</option>
+        <option value="Web Developer">Web Developer</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <input type="radio" value=1 name="isMarried" #isMarried="ngModel" [(ngModel)]="service.Employeedata.isMarried" /> Male
+    <input type="radio" value=2 name="isMarried" #isMarried="ngModel" [(ngModel)]="service.Employeedata.isMarried"  /> Female
+</div>
+<div class="form-group">
+    <input type="checkbox" value=1 name="isActive" #isActive="ngModel" [(ngModel)]="service.Employeedata.isActive" /> InActive
+</div>
+
+
+<div class="form-group mt-2 mb-2">
+    <button class="btn btn-info btn- btn-block w-100 text-white" type="submit" [disabled]="form.invalid" >Submit</button>
+</div>
+</form>
+
+
+
+
+
+
+
